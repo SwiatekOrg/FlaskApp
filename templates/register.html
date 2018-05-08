@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="container text-center">
+    <h1>Register</h1>
+    <center><form action="/register" method="POST" style="width:600px">
+            <input name="username" class="form-control" placeholder="Username" required="" autofocus="" type="username">
+            <input name="password" class="form-control" placeholder="Password" required="" type="password">
+            <input name="email" class="form-control" placeholder="Email" required="" type="email">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+    </form>
+    <div style="width:600px">
+        {% with messages = get_flashed_messages() %}
+            {% if messages[0] == "You were successfully registered" %}
+                 <div class="alert alert-success">{{ messages[0] }}</div>
+             {% elif messages[0] == "Failed" %}
+                 <div class="alert alert-warning"> {{ messages[0] }} </div>
+             {% endif %}
+        {% endwith %}
+    </div>
+    </center>
+</div>
+{% endblock %}
