@@ -36,6 +36,4 @@ def logut():
 
 if __name__ == '__main__':
     app.secret_key = "jdu7x3j8e83iej7eeh8e"
-    app.secret_key = 'A0Zr98j/3yX R~XHfdasfadfdfafadaH!jmN]LWX/,?RT'
-    app.secret_key = 'A0Zr98j/3yX R~XHfdasfadfdfafadaH!jmN]LWX/,?RT'
     app.run(port=5011, debug=True)
