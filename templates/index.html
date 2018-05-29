@@ -2,8 +2,9 @@
 
 {% block body %}
     {% if 'logged_in' in session and session['logged_in'] == True %}
-    <div class="container text-center">Zalogowany!</div>
+    <div>Zalogowany!</div>
     {% else %}
-    <div class="container text-center">Wylogowany!</div>
+    <div>Wylogowany!</div>
     {% endif %}
 {% endblock %}
+

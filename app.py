@@ -39,4 +39,4 @@ def logut():
 
 if __name__ == '__main__':
     app.secret_key = "jdu7x3j8e83iej7eeh8e"
-    app.run(port=5011, debug=True)
+    app.run(port=5011)
