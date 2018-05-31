@@ -4,12 +4,19 @@ body{
 
 }
 
+*, ::after, ::before{
+	box-sizing: border-box;
+}
+
 #conteiner{
 	padding-top: 75px;
 	width: 900px;
 	margin-left: auto;
 	margin-right: auto;
+	text-align: center;
 }
+
+/* *** NAVBAR *** */
 
 #nav{
  	background-color: #333;
@@ -46,10 +53,6 @@ body{
 
 }
 
-/* Login button link */
-#login{
-}
-
 /* Home button link */
 #home a{
 	font-size: 30px !important;
@@ -69,4 +72,47 @@ body{
 #nav a:hover {
     background-color: white;
     color: gray;
+}
+
+/* Style of forms,inputs */
+
+.forms input,button{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.inputs{
+	width: 450px;
+	padding: 10px;
+	border: 1px solid gray;
+	border-radius: 4px;
+	font-size: 17px;
+}
+
+.buttons{
+	width: 450px;
+	padding: 10px;
+	border: 1px solid #3399ff;
+	border-radius: 4px;
+	background-color: #3399ff;
+	color: white;
+	font-size: 25px;
+}
+
+button:hover{
+	background-color: #0099ff;
+}
+
+/* Style of messege*/
+.message{
+	width: 450px;
+	padding: 10px;
+	border: 1px solid #ffcc66;
+	border-radius: 6px;
+	background-color: #ffcc66;
+	color: #cc6600;
+	font-size: 15px;
+	margin-left: auto;
+	margin-right: auto;
 }
