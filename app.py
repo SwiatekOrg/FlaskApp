@@ -27,7 +27,6 @@ def register():
     db = DataBase()
     if request.method == 'POST':
         username = request.form['username']
-        print (username)
         password = request.form['password']
         email = request.form['email']
         if db.add_account(username,password,email):

@@ -9,7 +9,6 @@ class DataBase():
         #self.cursor.execute('''CREATE TABLE stocks
              #(user_id int, username text, password text, email text)''')
 		self.conn.commit()
-		self.add_account("jd","jd","jd@op.pl")
 
 	def connect(self):
 		self.conn = sqlite3.connect('database1.db')
@@ -20,6 +19,8 @@ class DataBase():
 	def get_account(self,username):
 		self.conn.execute("SELECT * FROM users WHERE username=\"%s\"" % username)
 		user = self.cursor.fetchone()
+		print(self.cursor.description)
+		print("wartisc cursor.fetchone()" + str(user))
 		return user
 
 	def get_user_password(self,username):
@@ -28,10 +29,10 @@ class DataBase():
 		return password
 
 	def add_account(self,username,password,email):
-		if self.get_account(username) is not None and \
-			username in self.get_account(username):
+		print("funkcja get account daje "+ str(self.get_account(username)))
+		if self.get_account(username) is not None:
 			return False
-		self.cursor.execute("INSERT INTO users(username, password, email) VALUES(\"%s\", \"%s\", \"%s\")" % (username, password, email))
-		print("Dodano " + username)
-		self.conn.commit()
-		return True
+		else:
+			self.cursor.execute("INSERT INTO users(username, password, email) VALUES(\"%s\", \"%s\", \"%s\")" % (username, password, email))
+			self.conn.commit()
+			return True
