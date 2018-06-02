@@ -1,7 +1,6 @@
 from flask import Flask, session, redirect, url_for, escape, request, render_template, flash
 from database import DataBase
 
-db = DataBase()
 app = Flask(__name__)
 app.secret_key = "jdu7x3j8e83iej7eeh8e"
 
@@ -25,11 +24,19 @@ def login():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    db = DataBase()
     if request.method == 'POST':
-        flash("You were successfully registered")
-        return render_template('register.html')
-    else:
-        return render_template('register.html')
+        username = request.form['username']
+        print (username)
+        password = request.form['password']
+        email = request.form['email']
+        if db.add_account(username,password,email):
+            flash("You were successfully registered!")
+            print("ok")
+        else:
+            print("no ok")
+            flash("That user is arleady exist")
+    return render_template('register.html')
 
 
 @app.route('/logout',methods=['GET'])
