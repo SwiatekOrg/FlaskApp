@@ -31,10 +31,10 @@ def register():
         email = request.form['email']
         if db.add_account(username,password,email):
             flash("You were successfully registered!")
-            print("ok")
+            return render_template('register.html')
         else:
-            print("no ok")
-            flash("That user is arleady exist")
+            flash("That user arleady exist")
+            return render_template('register.html')
     return render_template('register.html')
 
 
