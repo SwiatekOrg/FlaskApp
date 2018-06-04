@@ -118,7 +118,11 @@ body{
 /* *** Style of settings page *** */
 
 #settings{
-	font-size: 15px !important;
+	font-size: 20px !important;
+}
+
+#settings form{
+	margin: 5px;
 }
 
 #settings h2{
@@ -128,10 +132,10 @@ body{
 
 #settings label{
 	margin-left: 35%;
-	width: 120px;
+	width: 150px;
 	display: block;
 	float: left;
-	padding: 4px;
+	padding: 6px;
 }
 
 #settings input{
