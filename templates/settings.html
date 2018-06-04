@@ -1,6 +1,26 @@
 {% extends 'layout.html' %}
 {% block body %}
-<div>
-    <h1>Settings</h1>
+<div id="settings">
+    <h2>Profile Data</h2>
+    <form action="" method="POST">
+        <label>Name</label><input class="" name="name" placeholder="" required="" type="text"><br>
+        <label>Surname</label><input class="" name="surname" placeholder="" required="" type="text"><br>
+        <label>Age</label><input class="" name="age" placeholder="" required="" type="number"><br>
+        <button class="" type="submit">Submit</button>
+    </form>
+
+    <h2>Change email</h2>
+    <form action="" method="POST">
+            <label>New email</label><input class="" name="email" placeholder="" required="" type="email"><br>
+            <button class="" type="submit">Submit</button>
+    </form>
+
+    <h2>Change password</h2>
+    <form action="" method="POST">
+        <label>Old password</label><input class="" name="password" placeholder="" required="" type="password"><br>
+        <label>New password</label><input class="" name="new_pass" placeholder="" required="" type="password"><br>
+        <label>Type again</label><input class="" name="again" placeholder="" required="" type="password"><br>
+        <button class="" type="submit">Submit</button>
+    </form>
 </div>
 {% endblock %}
