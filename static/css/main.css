@@ -135,13 +135,15 @@ body{
 	width: 150px;
 	display: block;
 	float: left;
-	padding: 6px;
+	padding: 7px;
 }
 
 #settings input{
 	width: 170px;
 	margin: 5px;
 	padding: 3px;
+	border: 1px solid gray;
+	border-radius: 5px;
 }
 
 #settings button{
