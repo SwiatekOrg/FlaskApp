@@ -9,7 +9,7 @@ body{
 }
 
 #conteiner{
-	padding-top: 75px;
+	padding-top: 70px;
 	width: 900px;
 	margin-left: auto;
 	margin-right: auto;
@@ -139,7 +139,7 @@ body{
 }
 
 #settings input{
-	width: 200px;
+	width: 170px;
 	margin: 5px;
 	padding: 3px;
 }
@@ -147,4 +147,25 @@ body{
 #settings button{
 	margin-left: 55%;
 	margin-top: 10px;
+	padding: 4px 8px;
+	border: 1px solid #3399ff;
+	border-radius: 5px;
+	background-color: #3399ff;
+	color: white;
+	font-size: 15px;
+
+}
+
+#age{
+	width: 50px !important;
+}
+
+#settings input[type="radio"]{
+	width: 20px;
+	margin: 11px 4px;
+}
+
+#settings span{
+	font-size: 15px;
+	padding: 9px;
 }
