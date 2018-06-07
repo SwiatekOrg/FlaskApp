@@ -48,7 +48,7 @@ class DataBase():
             return False
         else:
             self.cursor.execute("INSERT INTO users(username, password, email) VALUES(\"%s\", \"%s\", \"%s\")" % (username, password, email))
-            self.cursor.execute("INSERT INTO settings(user_id,name,surname,age,sex) VALUES(\"%i\",\"%s\",\"%s\",\"%i\",\"%s\")" % (int(self.get_user_id(username)[0]),"Name","Surname",0,"Sex"))
+            self.cursor.execute("INSERT INTO settings(user_id,name,surname,age,sex) VALUES(\"%i\",\"%s\",\"%s\",\"%i\",\"%s\")" % (self.get_user_id(username),"Name","Surname",0,"Sex"))
             self.conn.commit()
             return True
 
