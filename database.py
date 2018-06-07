@@ -26,6 +26,11 @@ class DataBase():
         username = self.cursor.fetchone()
         return username
 
+    def get_user_id(self,username):
+        self.cursor.execute("SELECT user_id FROM users WHERE username=\"%s\"" % username)
+        user_id = self.cursor.fetchone()
+        return int(user_id[0])
+
     def get_user_password(self,username):
         self.cursor.execute("SELECT password FROM users WHERE username=\"%s\"" % username)
         password = self.cursor.fetchone()
@@ -43,5 +48,11 @@ class DataBase():
             return False
         else:
             self.cursor.execute("INSERT INTO users(username, password, email) VALUES(\"%s\", \"%s\", \"%s\")" % (username, password, email))
+            self.cursor.execute("INSERT INTO settings(user_id,name,surname,age,sex) VALUES(\"%i\",\"%s\",\"%s\",\"%i\",\"%s\")" % (int(self.get_user_id(username)[0]),"Name","Surname",0,"Sex"))
             self.conn.commit()
             return True
+
+    def change_name(self,name,username):
+        self.cursor.execute("UPDATE settings SET name=\"%s\" WHERE user_id=\"%i\"" % (name,self.get_user_id(username)))
+        self.conn.commit()       
+

@@ -2,10 +2,10 @@
 {% block body %}
 <div id="settings">
     <h2>Profile Data</h2>
-    <form action="" method="POST">
-        <label for="name">Name</label><input class="" name="name" placeholder="" required="" type="text"><br>
-        <label for="surname">Surname</label><input class="" name="surname" placeholder="" required="" type="text"><br>
-        <label for="age">Age</label><input class="" name="age" placeholder="" required="" type="number" id="age"><br>
+    <form action="/settings" method="POST">
+        <label for="name">Name</label><input class="" name="name" placeholder=""  type="text"><br>
+        <label for="surname">Surname</label><input class="" name="surname" placeholder="" type="text"><br>
+        <label for="age">Age</label><input class="" name="age" placeholder=""  type="number" id="age"><br>
         <label>Sex</label>
         <input type="radio" name="sex" value="male"><span>Male</span>
         <input type="radio" name="sex" value="female"><span>Female</span>
@@ -14,7 +14,7 @@
 
     <h2>Change email</h2>
     <form action="" method="POST">
-            <label>New email</label><input class="" name="email" placeholder="" required="" type="email"><br>
+            <label>New email</label><input class="" name="email" placeholder="" type="email"><br>
             <button class="" type="submit">Submit</button>
     </form>
 

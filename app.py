@@ -16,6 +16,7 @@ def login():
 		password = request.form['password']
 		if db.login_to_account(username,password):
 			session['logged_in'] = True
+			session['username'] = request.form['username']
 			return render_template('index.html')
 		else:
 			session['logged_in'] = False
@@ -47,7 +48,19 @@ def logut():
 
 @app.route('/settings',methods=['GET','POST'])
 def settings():
+	db = DataBase()
+	if request.method == 'POST':
+		name = request.form['name']
+		surname = request.form.get('surname')
+		age = request.form.get('age')
+		sex = request.form.get('sex')
+		username = session['username']
+		print(username)
+		db.change_name(name,username)
 	return render_template('settings.html')
+
+#@app.route('/profiledata',methods=['GET','POST'])
+#def profiledata():
 
 if __name__ == '__main__':
 	app.secret_key = "jdu7x3j8e83iej7eeh8e"
