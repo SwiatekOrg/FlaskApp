@@ -1,5 +1,6 @@
 {% extends 'layout.html' %}
 {% block body %}
+{% if 'logged_in' in session and session['logged_in'] == True %}
 <div id="settings">
     <h2>Profile Data</h2>
     <form action="/settings" method="POST">
@@ -11,19 +12,39 @@
         <input type="radio" name="sex" value="female" {% if profile.sex == "female" %} checked="checked" {% endif %}><span>Female</span>
         <button name="ProfileData" type="submit">Submit</button>
     </form>
+    {% with messages = get_flashed_messages() %}
+        {% if messages[0] == "Successfully changed informations" %}
+            <div class="message succes setting_message"> {{ messages[0] }} </div>
+        {% endif %}
+    {% endwith %}
 
     <h2>Change email</h2>
     <form action="/settings" method="POST">
             <label>New email</label><input class="" name="email" placeholder="{{ profile.email }}" type="email"><br>
             <button name="ChangeMail" type="submit">Submit</button>
     </form>
+    {% with messages = get_flashed_messages() %}
+        {% if messages[0] == "Successfully changed mail" %}
+            <div class="message succes setting_message"> {{ messages[0] }} </div>
+        {% endif %}
+    {% endwith %}
 
     <h2>Change password</h2>
     <form action="" method="POST">
         <label>Old password</label><input class="" name="password" placeholder="" required="" type="password"><br>
-        <label>New password</label><input class="" name="new_pass" placeholder="" required="" type="password"><br>
-        <label>Type again</label><input class="" name="again" placeholder="" required="" type="password"><br>
+        <label>New password</label><input class="" name="newpassword" placeholder="" required="" type="password"><br>
+        <label>Repeat</label><input class="" name="repeatpassword" placeholder="" required="" type="password"><br>
         <button name="ChangePassword" type="submit">Submit</button>
     </form>
 </div>
+    {% with messages = get_flashed_messages() %}
+        {% if messages[0] == "Successfully changed password" %}
+            <div class="message succes setting_message"> {{ messages[0] }} </div>
+        {% elif messages[0] == "Passwords are not the same" or messages[0] == "You typed wrong password" %}
+            <div class="message failed setting_message"> {{ messages[0] }} </div>
+        {% endif %}
+    {% endwith %}
+{% else %}
+    {% include 'notlogin.html' %}
+{% endif %}
 {% endblock %}

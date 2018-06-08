@@ -19,6 +19,12 @@ body{
 	text-align: center;
 }
 
+.when_login_logout{
+	padding: 40px;
+	font-size: 30px !important;
+
+}
+
 /* *** NAVBAR *** */
 
 #nav{
@@ -113,6 +119,7 @@ body{
 	font-size: 15px;
 	margin-left: auto;
 	margin-right: auto;
+	text-align: center;
 }
 
 .succes{
@@ -182,4 +189,9 @@ body{
 #settings span{
 	font-size: 15px;
 	padding: 10px 5px 10px 0px;
+}
+
+.setting_message {
+	margin-left: 33%;	
+	margin-top: 10px;
 }

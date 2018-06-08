@@ -67,9 +67,25 @@ def settings():
 				db.change_setting("age",age,username)
 			if sex != "":
 				db.change_setting("sex",sex,username)
+				flash("Successfully changed informations")	
 		if 'ChangeMail' in request.form:
 			newmail = request.form['email']
 			db.change_email(newmail,username)
+			flash("Successfully changed mail")	
+		if 'ChangePassword' in request.form:
+			password = request.form['password']
+			newpassword = request.form['newpassword']
+			repeatpassword = request.form['repeatpassword']
+			if db.get_user_password(username) == password:
+				if newpassword == repeatpassword:
+					db.change_password(newpassword,username)
+					flash("Successfully changed password")	
+				else:
+					flash("Passwords are not the same")		
+			else:
+				print(db.get_user_password(username))
+				print(password)
+				flash("You typed wrong password")
 		return redirect(url_for('settings'))
 
 	return render_template('settings.html', profile = profile)

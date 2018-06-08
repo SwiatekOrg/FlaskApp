@@ -32,7 +32,7 @@ class DataBase():
     def get_user_password(self,username):
         self.cursor.execute("SELECT password FROM users WHERE username=\"%s\"" % username)
         password = self.cursor.fetchone()
-        return password
+        return str(password[0])
 
     def login_to_account(self,username,password):
         user = self.get_account(username)
@@ -59,4 +59,8 @@ class DataBase():
 
     def change_email(self,newmail,username):   
         self.cursor.execute("UPDATE users SET email=\"%s\" WHERE username=\"%s\"" % (newmail,username))
+        self.conn.commit()
+
+    def change_password(self,newpassword,username):
+        self.cursor.execute("UPDATE users SET password=\"%s\" WHERE username=\"%s\"" % (newpassword,username))
         self.conn.commit()

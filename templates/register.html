@@ -1,5 +1,6 @@
 {% extends 'layout.html' %}
 {% block body %}
+{% if 'logged_in' in session and session['logged_in'] == False %}
 <div class="align-center">
     <h1>Register</h1>
     <form action="/register" method="POST" class="login">
@@ -18,4 +19,7 @@
         {% endwith %}
     </div>
 </div>
+{% else %}
+    {% include 'logined.html' %}
+{% endif %}
 {% endblock %}
