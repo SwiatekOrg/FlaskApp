@@ -1,5 +1,6 @@
-from flask import Flask, session, redirect, url_for, escape, request, render_template, flash
+from flask import Flask, session, redirect, url_for, request, render_template, flash
 from database import DataBase
+from profile import Profile
 
 app = Flask(__name__)
 app.secret_key = "jdu7x3j8e83iej7eeh8e"
@@ -48,7 +49,9 @@ def logut():
 
 @app.route('/settings',methods=['GET','POST'])
 def settings():
+	username = session['username']
 	db = DataBase()
+	profile = Profile(db.get_user_id(username))
 	if request.method == 'POST':
 		username = session['username']
 		if 'ProfileData' in request.form:
@@ -67,8 +70,9 @@ def settings():
 		if 'ChangeMail' in request.form:
 			newmail = request.form['email']
 			db.change_email(newmail,username)
+		return redirect(url_for('settings'))
 
-	return render_template('settings.html')
+	return render_template('settings.html', profile = profile)
 
 #@app.route('/profiledata',methods=['GET','POST'])
 #def profiledata():

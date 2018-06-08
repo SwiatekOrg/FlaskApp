@@ -6,8 +6,6 @@ class DataBase():
         self.conn = None
         self.connect()
         self.cursor = self.get_cursor()
-        #self.cursor.execute('''CREATE TABLE stocks
-             #(user_id int, username text, password text, email text)''')
         self.conn.commit()
 
     def connect(self):
