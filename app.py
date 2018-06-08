@@ -50,13 +50,24 @@ def logut():
 def settings():
 	db = DataBase()
 	if request.method == 'POST':
-		name = request.form.get('name')
-		surname = request.form.get('surname')
-		age = request.form.get('age')
-		sex = request.form.get('sex')
 		username = session['username']
-		if name != "":
-			db.change_name(name,username)
+		if 'ProfileData' in request.form:
+			name = request.form.get('name')
+			surname = request.form.get('surname')
+			age = request.form.get('age')
+			sex = request.form.get('sex')
+			if name != "":
+				db.change_setting("name",name,username)
+			if surname != "":
+				db.change_setting("surname",surname,username)
+			if age != "":
+				db.change_setting("age",age,username)
+			if sex != "":
+				db.change_setting("sex",sex,username)
+		if 'ChangeMail' in request.form:
+			newmail = request.form['email']
+			db.change_email(newmail,username)
+
 	return render_template('settings.html')
 
 #@app.route('/profiledata',methods=['GET','POST'])

@@ -9,13 +9,13 @@
         <label>Sex</label>
         <input type="radio" name="sex" value="male"><span>Male</span>
         <input type="radio" name="sex" value="female"><span>Female</span>
-        <button class="" type="submit">Submit</button>
+        <button name="ProfileData" type="submit">Submit</button>
     </form>
 
     <h2>Change email</h2>
-    <form action="" method="POST">
+    <form action="/settings" method="POST">
             <label>New email</label><input class="" name="email" placeholder="" type="email"><br>
-            <button class="" type="submit">Submit</button>
+            <button name="ChangeMail" type="submit">Submit</button>
     </form>
 
     <h2>Change password</h2>
@@ -23,7 +23,7 @@
         <label>Old password</label><input class="" name="password" placeholder="" required="" type="password"><br>
         <label>New password</label><input class="" name="new_pass" placeholder="" required="" type="password"><br>
         <label>Type again</label><input class="" name="again" placeholder="" required="" type="password"><br>
-        <button class="" type="submit">Submit</button>
+        <button name="ChangePassword" type="submit">Submit</button>
     </form>
 </div>
 {% endblock %}

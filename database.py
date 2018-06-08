@@ -52,7 +52,13 @@ class DataBase():
             self.conn.commit()
             return True
 
-    def change_name(self,name,username):
-        self.cursor.execute("UPDATE settings SET name=\"%s\" WHERE user_id=\"%i\"" % (name,self.get_user_id(username)))
-        self.conn.commit()       
+    def change_setting(self,parameter,name,username):
+        if type(name) == int:
+            self.cursor.execute("UPDATE settings SET \"%s\"=\"%i\" WHERE user_id=\"%i\"" % (parameter,name,self.get_user_id(username)))
+        else:
+            self.cursor.execute("UPDATE settings SET \"%s\"=\"%s\" WHERE user_id=\"%i\"" % (parameter,name,self.get_user_id(username)))
+        self.conn.commit()   
 
+    def change_email(self,newmail,username):   
+        self.cursor.execute("UPDATE users SET email=\"%s\" WHERE username=\"%s\"" % (newmail,username))
+        self.conn.commit()
