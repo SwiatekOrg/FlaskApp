@@ -115,6 +115,18 @@ body{
 	margin-right: auto;
 }
 
+.succes{
+	border-color: #009900;
+	background-color: #33cc33;
+	color: #333300;
+}
+
+.failed{
+	border-color: #ff0000;
+	background-color: #ff5050;
+	color: #800000;
+}
+
 /* *** Style of settings page *** */
 
 #settings{

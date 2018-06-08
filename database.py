@@ -36,10 +36,10 @@ class DataBase():
 
     def login_to_account(self,username,password):
         user = self.get_account(username)
-        if str(user[1]) == username and str(user[2]) == password:
-            return True
-        else:
+        if user == None:
             return False
+        elif str(user[1]) == username and str(user[2]) == password:
+            return True
 
     def add_account(self,username,password,email):
         if self.get_user_username(username) is not None:
